@@ -1,0 +1,12 @@
+.main {
+  width: 50vw;
+  margin: auto;
+  &-title {
+    text-align: center;
+  }
+  &-form {
+    align-items: space-between;
+    margin-top: 5rem;
+  }
+}
+
