@@ -1,6 +1,8 @@
 {
   "name": "contact-form",
   "version": "0.1.0",
+  "license": "MIT",
+  "author": "Naddiya",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^2.6.0",
