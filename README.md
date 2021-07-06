@@ -26,7 +26,7 @@ yarn install
 yarn start
 ```
 
-## Looks nice isn't it ? 
+## Isn't it lovely ? 
 
 ![nadia medkouri fullstack javascript store header](public/img/myform.png)
 
