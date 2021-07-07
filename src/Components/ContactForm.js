@@ -10,8 +10,8 @@ const validationSchema = yup.object().shape({
   fullName: yup.string()
     .min(3, "Your name should be at least 3 characters")
     .max(50, "Your name can not exceed 50 characters")
-    .required("Please enter your name")
-    .matches(/^[A-Za-z\s]+$/, "Only alphabetical characters allowed"),
+    .matches(/^[A-Za-z\s]+$/, "Only alphabetical characters allowed")
+    .required("Please enter your name"),
   email: yup.string()
     .min(5)
     .max(50)
@@ -25,7 +25,7 @@ const validationSchema = yup.object().shape({
     .min(5, "Please say Hello or any 5 characters ಥ_ಥ ")
     .max(500)
     .matches(/^[^<>]+$/, "Please do not use funny characters < ^__ ^ >")
-    .required("Don't forget to enter your message ;)"),
+    .required("Don not forget to enter your message ;)"),
 });
 
 function ContactForm() {
@@ -45,13 +45,13 @@ function ContactForm() {
       <h1 className="main-title">My super form</h1>
       <form className="main-form" onSubmit={handleSubmit(onSubmit)}>
 
-        <TextField className="form-control is-invalid" {...register("fullName")}
+        <TextField {...register("fullName")}
           fullWidth
           name="fullName"
           label="Your name"
           variant="outlined"
           margin="normal"
-          error={errors.fullname}
+          error={errors.fullName}
         />
         {errors.fullName && <p className="invalidInput">{errors.fullName.message}</p>}
 
