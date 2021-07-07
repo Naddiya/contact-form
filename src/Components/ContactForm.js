@@ -20,7 +20,7 @@ const validationSchema = yup.object().shape({
   phoneNumber: yup.string()
     .min(10, "phone number should be at least 10 characters")
     .max(20)
-    .matches(/^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/, "Phone number should 0-9 characters"),
+    .matches(/^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/, "Phone number should be 0-9 characters"),
   message: yup.string()
     .min(5, "Please say Hello or any 5 characters ಥ_ಥ ")
     .max(500)
