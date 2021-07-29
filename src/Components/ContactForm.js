@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Box, TextField, Button } from '@material-ui/core';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
+import emailjs, { send, sendForm } from "emailjs-com";
 
 
 const validationSchema = yup.object().shape({
@@ -28,6 +28,7 @@ const validationSchema = yup.object().shape({
     .required("Don not forget to enter your message ;)"),
 });
 
+
 function ContactForm() {
   const {
     register,
@@ -36,19 +37,26 @@ function ContactForm() {
   } = useForm({
     resolver: yupResolver(validationSchema)
   });
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const sendEmail = (e) => {
+    emailjs.sendForm('service_ID', 'template_ID', '#contactForm', 'user_ID')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   };
+
 
   return (
     <Box className="main">
       <h1 className="main-title">My super form</h1>
-      <form className="main-form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="main-form" id="contactForm" onSubmit={handleSubmit(sendEmail)}>
 
         <TextField {...register("fullName")}
           fullWidth
           name="fullName"
-          label="Your name"
+          label="Full Name"
           variant="outlined"
           margin="normal"
           error={errors.fullName}
